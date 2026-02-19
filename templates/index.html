@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Payment Fraud Detection</title>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.container{
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0px 0px 15px rgba(0,0,0,0.2);
+    width:400px;
+}
+
+h2{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+input, select{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+    border-radius:5px;
+    border:1px solid #ccc;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:#4facfe;
+    border:none;
+    color:white;
+    font-size:16px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0077ff;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Online Payment Fraud Detection</h2>
+
+<form action="/predict" method="post">
+
+<label>Step</label>
+<input type="number" name="step" required>
+
+<label>Transaction Type</label>
+<select name="type">
+{% for t in types %}
+<option value="{{t}}">{{t}}</option>
+{% endfor %}
+</select>
+
+<label>Amount</label>
+<input type="number" name="amount" required>
+
+<label>Old Balance Origin</label>
+<input type="number" name="oldbalanceOrg" required>
+
+<label>New Balance Origin</label>
+<input type="number" name="newbalanceOrig" required>
+
+<label>Old Balance Destination</label>
+<input type="number" name="oldbalanceDest" required>
+
+<label>New Balance Destination</label>
+<input type="number" name="newbalanceDest" required>
+
+<button type="submit">Predict</button>
+
+</form>
+
+</div>
+
+</body>
+</html>
